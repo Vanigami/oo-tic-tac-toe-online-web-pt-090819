@@ -1,3 +1,4 @@
+require "pry"
 class TicTacToe
   
   def initialize()
@@ -53,9 +54,9 @@ class TicTacToe
         turn
      end
      
-    def won?
-       WIN_COMBINATIONS.detect do |win_combo|
-           pos1 = @board[win_combo[0]]
+  def won?
+      WIN_COMBINATIONS.detect do |win_combo|
+      pos1 = @board[win_combo[0]]
       pos2 = @board[win_combo[1]]
       pos3 = @board[win_combo[2]]
       if (pos1 == "X" && pos2 == "X" && pos3 == "X") || (pos1 == "O" && pos2 == "O" && pos3 == "O")
@@ -96,6 +97,7 @@ class TicTacToe
   
   def winner
         the_champ = won?
+        binding.pry
         if the_champ
          return @board[the_champ[0]]
     end
